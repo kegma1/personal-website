@@ -21,6 +21,7 @@
             gotools        # goimports, etc.
             air            # Live reload
             golangci-lint  # Linter
+            templ
           ];
 
           shellHook = ''
