@@ -1,0 +1,18 @@
+package views
+
+templ Test() {
+  @Page("test side", templ.Raw("<h1>hallo verden</h1>"))
+}
+
+templ Page(title string, content templ.Component) {
+  <!DOCTYPE html>
+  <html>
+    <head>
+        <title>{ title }</title>
+    </head>
+
+    <body>
+      @content
+    </body>
+  </html>
+}

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	component := views.Hello("John")
+	component := views.Test()
 
 	http.Handle("/", templ.Handler(component))
 
