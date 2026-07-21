@@ -1,0 +1,13 @@
+package components
+
+templ Window(title string) {
+  <div class="window active">
+    <div class="title-bar">
+      <div class="title-bar-text">{title}</div>
+    </div>
+    <div class="window-body">
+      { children... }
+    </div>
+  </div>
+}
+

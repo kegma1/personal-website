@@ -1,18 +1,16 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
-
-	"github.com/a-h/templ"
-	"personal_website/views"
+	"personal_website/handlers"
 )
 
 func main() {
-	component := views.Test()
+	mux := http.NewServeMux()
 
-	http.Handle("/", templ.Handler(component))
-
-	fmt.Println("Listening on :3000")
-	http.ListenAndServe(":3000", nil)
+	mux.HandleFunc("GET /", handlers.TestStyle)
+	
+	log.Println("Server staring on :6969")
+	log.Fatal(http.ListenAndServe(":6969", mux))
 }
