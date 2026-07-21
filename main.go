@@ -8,6 +8,9 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
+	
+	fileServer := http.FileServer(http.Dir("./static"))
+	mux.Handle("GET /static/{path...}", http.StripPrefix("/static/", fileServer))
 
 	mux.HandleFunc("GET /", handlers.TestStyle)
 	

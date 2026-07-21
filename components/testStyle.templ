@@ -2,6 +2,19 @@ package components
 
 templ TestStyle() {
   @Base("test") {
-    <h1>halla</h1>
+    <div class="layout">
+      @Window("Terminal", "terminal") {
+        <h1>halla</h1>
+      }
+      @Window("~/Projects", "projects") {
+        <h1>halla</h1>
+      }
+      @Window("Hello world", "main") {
+        <h1>halla</h1>
+      }
+      @Window("Blog", "blog") {
+        <h1>halla</h1>
+      }
+    </div>
   }
 }

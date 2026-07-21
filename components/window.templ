@@ -1,9 +1,18 @@
 package components
 
-templ Window(title string) {
-  <div class="window active">
+templ Window(title string, windowId string) {
+  <div class="window" id={windowId}>
     <div class="title-bar">
+      <div class="close-button"></div>
       <div class="title-bar-text">{title}</div>
+      <div class="minimize-button">
+        <svg width="15" height="15" viewBox="0 0 15 15">
+          <path d="M7.5 0 V7.5 H-7.5" 
+                stroke-width="5" 
+                stroke-linecap="square"
+                fill="none"/>
+        </svg>
+      </div>
     </div>
     <div class="window-body">
       { children... }

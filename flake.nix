@@ -22,6 +22,7 @@
             air            # Live reload
             golangci-lint  # Linter
             templ
+            vscode-css-languageserver
           ];
 
           shellHook = ''
