@@ -1,20 +1,42 @@
 package components
 
-templ TestStyle() {
+templ Desktop() {
   @Base("test") {
-    <div class="layout">
-      @Window("Terminal", "terminal") {
+    <div class="desktop" x-data="{ nextZ: 10 }">
+      @Window("Hello world", "main-window", 4) {
         <h1>halla</h1>
       }
-      @Window("~/Projects", "projects") {
+      @Window("Terminal", "terminal-window", 3) {
+        @Terminal()
+      }
+      @Window("~/Projects", "projects-window", 2) {
         <h1>halla</h1>
       }
-      @Window("Hello world", "main") {
-        <h1>halla</h1>
-      }
-      @Window("Blog", "blog") {
+      @Window("Blog", "blog-window", 1) {
         <h1>halla</h1>
       }
     </div>
   }
+}
+
+templ Terminal() {
+  <div class="terminal">
+    <code>
+      ⠀⠀⡿⠀⠀⠀⠀⠈⢳⡄⠀⢰⡶⠶⠶⣤⣀⠀⠀⠀⢠⠞⠉⠀⠀⠀⠀⠀⢸⡇    kennet@desktop<br/>
+      ⠀⢸⠇⠀⠀⠀⠀⠀⠀⠙⢦⡈⣷⠀⠀⠀⠉⠻⢦⣰⡏⠀⠀⠀⠀⠀⠀⠀⢸⡇    ╭──┬─────────────────────────────────╮<br/>
+      ⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⣈⡿⠞⠛⠀⠀⠀⠀⠀⠙⠦⠀⠀⠀⠀⠀⠀⠀⢸⡇    │ │ NixOS 26.11 (Zokor)<br/>
+      ⠀⣿⠀⠀⠀⠀⠀⠀⠀⠘⠛⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇    │󰏖 │ 15 ( ) 2349 ( ) <br/>
+      ⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠇    │ │ Linux 6.18.38<br/>
+      ⠀⠀⢿⡀⠀⢠⣤⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⣰⣶⣶⣶⠒⢲⡖⠀⠀⠀⣠⠟⠀    │ │ AMD Ryzen 9 5950X<br/>
+      ⣤⣤⣈⣳⡄⠀⡟⠀⢸⣿⣿⣿⡇⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⣷⠀⢠⡾⠯⣤⡄    │󰢮 │ GeForce RTX 3060 Ti Lite Hash Rate<br/>
+      ⠹⣧⡉⠉⠁⠸⡇⠀⠀⢿⣿⣿⠀⠀⠀⠀⠀⠹⣿⣿⠏⠀⠀⣿⠀⠀⢀⣴⠏⠀    │ │ 4.04 GiB / 31.25 GiB (13%)<br/>
+      ⠀⠈⢙⡷⢠⣄⣝⡄⠀⠀⠉⠁⠀⠉⠉⠀⠀⠀⠀⠀⠀⢠⣶⡴⠀⠐⢿⣅⠀⠀    │ │ 15 mins<br/>
+      ⠀⢀⡿⠁⠀⠈⠁⠀⠀⠀⠀⠰⠤⠴⠖⠲⠶⠚⠁⠀⠀⠀⠉⢀⣀⢀⣀⣻⣦⠀    │󰪺 │ 44 days<br/>
+      ⠀⠘⠓⠒⠛⠛⠶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣤⡴⠶⠛⠉⠉⠉⠉⠁⠀    ╰──┴─────────────────────────────────╯<br/>
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠻⣍⡙⠋⠁⠀⠀⠀⠀⠀⠀⠀⠹⣆⠀⠀⠀⠀⠀⠀⠀⠀    ● ● ● ● ● ● ● ●<br/>
+      ⠀⠀⠀⠀⠀⠀⠀⠀⢀⡼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣆⠀⠀⠀⠀⠀⠀⠀<br/>
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀⠀<br/>
+      ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⠀⠀⠀⠀⠀⠀<br/>
+    </code>
+  </div>
 }

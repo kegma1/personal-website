@@ -6,6 +6,6 @@ import (
 )
 
 func TestStyle(w http.ResponseWriter, r *http.Request) {
-	component := components.TestStyle()
+	component := components.Desktop()
 	component.Render(r.Context(), w)	
 }

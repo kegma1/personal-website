@@ -15,6 +15,15 @@
   --base0D: #83a598;
   --base0E: #d3869b;
   --base0F: #d65d0e;
+
+  --window-shadow: color-mix(in srgb, var(--base00) 80%, transparent);
+}
+
+@font-face {
+  font-family: "Iosevka";
+  src: url("/static/IosevkaNerdFont-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
@@ -27,7 +36,10 @@ body {
 }
 
 .window {
-  box-shadow: 10px 10px 0px 0px var(--base00);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 10px 0px 0px var(--window-shadow);
   background-color: var(--base05);
   border-style: solid;
   border-color: var(--base00);
@@ -36,11 +48,10 @@ body {
 
 .title-bar {
   background: repeating-linear-gradient(180deg,
-    var(--base05),
-    var(--base05) 5px,
-    var(--base00) 5px,
-    var(--base00) 10px
-  );
+      var(--base05),
+      var(--base05) 5px,
+      var(--base00) 5px,
+      var(--base00) 10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,30 +95,47 @@ body {
 }
 
 .window-body {
-  
+  flex: 1;
+  overflow: auto;
 }
 
-.layout {
-  padding: 50px;
-  display: grid;
-  grid-template-columns: 1fr 2.5fr 0.5fr;
-  grid-template-areas:
-    "terminal main blog"
-    "terminal main blog"
-    "projects main blog"
-    "projects main blog";
-  gap: 20px;
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-#terminal {
-  grid-area: terminal;
+#terminal-window {
+  width: 600px;
+  height: 600px;
+  top: 80px;
+  left: 80px;
 }
-#projects {
-  grid-area: projects;
+
+.terminal {
+  background-color: var(--base00);
+  color: var(--base05);
+  height: 100%;
 }
-#main {
-  grid-area: main;
+.terminal code {
+  font-family: "Iosevka";
 }
-#blog {
-  grid-area: blog;
+
+#projects-window {
+  width: 500px;
+  height: 500px;
+  top: 660px;
+  left: 150px;
 }
+
+#main-window {
+  top: 60px;
+  left: 580px;
+  width: 800px;
+  height: 1200px;
+}
+
+#blog-window {
+}
+

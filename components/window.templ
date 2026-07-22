@@ -1,7 +1,15 @@
 package components
 
-templ Window(title string, windowId string) {
-  <div class="window" id={windowId}>
+import "strconv"
+
+templ Window(title string, windowId string, initialZ int) {
+  <div
+    class="window"
+    id={windowId}
+    x-data={"{Z: " + strconv.Itoa(initialZ) + "}"}
+    @click="Z = nextZ; nextZ++;"
+    :style="{ zIndex: Z }"
+  >
     <div class="title-bar">
       <div class="close-button"></div>
       <div class="title-bar-text">{title}</div>
