@@ -3,16 +3,16 @@ package components
 templ Desktop() {
   @Base("test") {
     <div class="desktop" x-data="{ nextZ: 10 }">
-      @Window("Hello world", "main-window", 4) {
+      @Window("Hello world", "main-window", 580, 60, 4) {
         <h1>halla</h1>
       }
-      @Window("Terminal", "terminal-window", 3) {
+      @Window("Terminal", "terminal-window", 80, 80, 3) {
         @Terminal()
       }
-      @Window("~/Projects", "projects-window", 2) {
+      @Window("~/Projects", "projects-window", 150, 660, 2) {
         <h1>halla</h1>
       }
-      @Window("Blog", "blog-window", 1) {
+      @Window("Blog", "blog-window", 0, 0, 1) {
         <h1>halla</h1>
       }
     </div>

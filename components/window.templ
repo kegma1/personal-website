@@ -1,16 +1,29 @@
 package components
 
-import "strconv"
+import (
+  "fmt"
+)
 
-templ Window(title string, windowId string, initialZ int) {
+templ Window(title string, windowId string, initialX int, initialY int, initialZ int) {
   <div
     class="window"
     id={windowId}
-    x-data={"{Z: " + strconv.Itoa(initialZ) + "}"}
-    @click="Z = nextZ; nextZ++;"
-    :style="{ zIndex: Z }"
+    x-data={ fmt.Sprintf("{ X: %d, Y: %d, Z: %d }", initialX, initialY, initialZ) }
+    @mousedown="Z = nextZ; nextZ++;"
+    :style="{ zIndex: Z, top: Y + 'px', left: X + 'px' }"
   >
-    <div class="title-bar">
+    <div
+      class="title-bar"
+      x-data="{ clicked: false }"
+      @mousedown="clicked = true"
+      @mouseup.window="clicked = false"
+      @mousemove.window="
+        if (clicked) {
+          X += $event.movementX;
+          Y += $event.movementY;
+        }
+      "
+    >
       <div class="close-button"></div>
       <div class="title-bar-text">{title}</div>
       <div class="minimize-button">

@@ -63,7 +63,7 @@ func Desktop() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("Hello world", "main-window", 4).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("Hello world", "main-window", 580, 60, 4).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -85,7 +85,7 @@ func Desktop() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("Terminal", "terminal-window", 3).Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("Terminal", "terminal-window", 80, 80, 3).Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -107,7 +107,7 @@ func Desktop() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("~/Projects", "projects-window", 2).Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("~/Projects", "projects-window", 150, 660, 2).Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -129,7 +129,7 @@ func Desktop() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("Blog", "blog-window", 1).Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("Blog", "blog-window", 0, 0, 1).Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
