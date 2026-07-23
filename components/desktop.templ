@@ -2,17 +2,18 @@ package components
 
 templ Desktop() {
   @Base("test") {
+    <div class="navbar"></div>
     <div class="desktop" x-data="{ nextZ: 10 }">
-      @Window("Hello world", "main-window", 580, 60, 4) {
+      @Window("Hello world", "main-window", 560, 15, 1) {
         <h1>halla</h1>
       }
-      @Window("Terminal", "terminal-window", 80, 80, 3) {
+      @Window("Terminal", "terminal-window", 1250, 80, 3) {
         @Terminal()
       }
-      @Window("~/Projects", "projects-window", 150, 660, 2) {
+      @Window("~/Projects", "projects-window", 95, 200, 2) {
         <h1>halla</h1>
       }
-      @Window("Blog", "blog-window", 0, 0, 1) {
+      @Window("Blog", "blog-window", 1250, 460, 4) {
         <h1>halla</h1>
       }
     </div>
