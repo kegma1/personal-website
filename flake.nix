@@ -23,6 +23,8 @@
             golangci-lint  # Linter
             templ
             vscode-css-languageserver
+            sqlc
+            sqlite
           ];
 
           shellHook = ''

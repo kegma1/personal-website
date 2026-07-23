@@ -1,2 +1,4 @@
 .gopath
 tmp
+*.db
+repositories/
