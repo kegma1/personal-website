@@ -121,7 +121,7 @@ body {
 }
 
 .terminal {
-  background-color: var(--base00);
+  background-color: var(--base01);
   color: var(--base05);
   height: 100%;
 }
