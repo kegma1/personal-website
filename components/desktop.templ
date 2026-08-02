@@ -1,5 +1,8 @@
 package components
 
+import "personal_website/repositories"
+import "strconv"
+
 templ Desktop() {
   @Base("test") {
     <div class="desktop" x-data="{ nextZ: 10 }">
@@ -13,13 +16,40 @@ templ Desktop() {
         <h1>halla</h1>
       }
       @Window("Blog", "blog-window", 1250, 460, 5) {
-        <h1>halla</h1>
+        @BlogFeed()
       }
       @Window("Halla", "hidden-terminal", 785, 200, 1) {
         @HiddenTerminal()
       }
     </div>
   }
+}
+
+templ BlogFeed() {
+  <div>
+    <ul>
+      @nextPage(0)
+    </ul>
+  </div>  
+}
+
+templ PostPage(next int, posts []repositories.Post) {
+  if len(posts) > 0 {
+    for _, post := range posts {
+      <li>
+        <h1>{ post.Title }</h1>
+        <p>{ post.Subtitle }</p>
+        <p>{ post.CreatedAt.Time.Format("02.Jan.2006") }</p>
+      </li>
+    }
+    @nextPage(next)
+  } else {
+    <p>no more posts</p>
+  }
+}
+
+templ nextPage(page int) {
+  <p hx-get={ "/posts/" + strconv.Itoa(page) } hx-trigger="intersect once" hx-target="this" hx-swap="outerHTML">getting posts...</p>
 }
 
 templ Terminal() {

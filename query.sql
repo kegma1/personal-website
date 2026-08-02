@@ -13,3 +13,9 @@ WHERE id = ? LIMIT 1;
 -- name: GetPosts :many
 SELECT * FROM posts
 ORDER BY created_at;
+
+-- name: GetPagedPosts :many
+SELECT * FROM posts
+ORDER BY created_at DESC
+LIMIT ?
+OFFSET ?;

@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"personal_website/components"
 	"personal_website/repositories"
+	"strconv"
 )
 
 type Application struct {
@@ -14,12 +15,23 @@ type Application struct {
 }
 
 func (app *Application) Desktop(w http.ResponseWriter, r *http.Request) {
-	posts, err := app.Q.GetPosts(app.Ctx) 
+	component := components.Desktop()
+	component.Render(r.Context(), w)	
+}
+
+func (app *Application) Posts(w http.ResponseWriter, r *http.Request) {
+	page, err := strconv.Atoi(r.PathValue("page"))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	log.Println(posts)
-	component := components.Desktop()
-	component.Render(r.Context(), w)	
+	posts, err := app.Q.GetPagedPosts(app.Ctx, repositories.GetPagedPostsParams{ Limit: 5, Offset: int64(page * 5) })
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println(page)
+
+	component := components.PostPage(page + 1, posts)
+	component.Render(r.Context(), w)
 }

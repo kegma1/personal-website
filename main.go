@@ -32,6 +32,7 @@ func main() {
 	mux.Handle("GET /static/{path...}", http.StripPrefix("/static/", fileServer))
 
 	mux.HandleFunc("GET /", a.Desktop)
+	mux.HandleFunc("GET /posts/{page}", a.Posts)
 	
 	log.Println("Server staring on :6969")
 	log.Fatal(http.ListenAndServe(":6969", mux))
