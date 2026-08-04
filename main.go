@@ -14,7 +14,7 @@ import (
 func main() {
 	ctx := context.Background()
 
-	db, err := sql.Open("sqlite", "./db.db")
+	db, err := sql.Open("sqlite", "./blog.db")
 	if err != nil {
 		log.Fatal(err)		
 	}

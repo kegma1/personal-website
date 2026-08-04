@@ -1,10 +1,13 @@
 -- name: CreatePost :one
 INSERT INTO posts (
-    title, subtitle, content, language, tags
+    title, subtitle, content, language, tags, created_at, edited_at
 ) VALUES (
-    ?, ?, ?, ?, ?
+    ?, ?, ?, ?, ?, ?, ?
 )
 RETURNING *;
+
+-- name: CleanPosts :exec
+DELETE FROM posts;
 
 -- name: GetPost :one
 SELECT * FROM posts

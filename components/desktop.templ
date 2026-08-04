@@ -39,7 +39,10 @@ templ PostPage(next int, posts []repositories.Post) {
       <li>
         <h1>{ post.Title }</h1>
         <p>{ post.Subtitle }</p>
-        <p>{ post.CreatedAt.Time.Format("02.Jan.2006") }</p>
+        <p>{ post.CreatedAt.Format("02.Jan.2006") }</p>
+        if post.EditedAt.Valid {
+          <p>{ post.EditedAt.Valid }</p>
+        }
       </li>
     }
     @nextPage(next)

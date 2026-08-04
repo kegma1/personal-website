@@ -3,7 +3,8 @@ CREATE TABLE posts (
     title         text      NOT     NULL,
     subtitle      text      NOT     NULL,
     content       text      NOT     NULL,
-    created_at    DATETIME  DEFAULT CURRENT_TIMESTAMP,
+    created_at    DATE      NOT     NULL,
+    edited_at     DATE              NULL,
     language      text      NOT     NULL,
     tags          text      NOT     NULL  -- comma seperated value
 )
