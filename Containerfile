@@ -58,6 +58,9 @@ COPY --from=builder /out/my-go-app ./my-go-app
 # Copy static assets.
 COPY --from=builder /src/static ./static
 
+# Set database path
+ENV BLOG_DATABASE_PATH=/data/blog.db
+
 # Expose the application port.
 EXPOSE 6969
 
