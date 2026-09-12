@@ -1,0 +1,4 @@
+.GOPATH
+blog.db
+flake.nix
+flake.toml

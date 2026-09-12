@@ -4,7 +4,7 @@
 # ============================================================
 # Stage 1: Build
 # ============================================================
-FROM golang:1.26-bookworm AS builder
+FROM golang:1.26.4-bookworm AS builder
 
 WORKDIR /src
 
@@ -42,7 +42,7 @@ ENV GOOS=linux
 RUN go build \
     -trimpath \
     -ldflags="-s -w" \
-    -o /out/my-go-app \
+    -o /out/personal_website \
     .
 
 # ============================================================
@@ -53,7 +53,7 @@ FROM gcr.io/distroless/static-debian12:nonroot
 WORKDIR /app
 
 # Copy the compiled Go application.
-COPY --from=builder /out/my-go-app ./my-go-app
+COPY --from=builder /out/personal_website ./personal_website
 
 # Copy static assets.
 COPY --from=builder /src/static ./static
@@ -64,4 +64,4 @@ EXPOSE 6969
 # Run without root privileges.
 USER nonroot:nonroot
 
-ENTRYPOINT ["/app/my-go-app"]
+ENTRYPOINT ["/app/personal_website"]
