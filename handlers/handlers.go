@@ -30,8 +30,6 @@ func (app *Application) Posts(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	log.Println(page)
-
 	component := components.PostPage(page + 1, posts)
 	component.Render(r.Context(), w)
 }
