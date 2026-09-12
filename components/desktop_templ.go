@@ -60,13 +60,13 @@ func Desktop() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<h1>halla</h1>")
+				templ_7745c5c3_Err = HiddenTerminal().Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("Hello world", "main-window", 560, 15, 2).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("Hello world", "main-window", 2).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -82,13 +82,9 @@ func Desktop() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = Terminal().Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("Terminal", "terminal-window", 1250, 80, 4).Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("Terminal", "terminal-window", 4).Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -104,13 +100,13 @@ func Desktop() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<h1>halla</h1>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<h1>halla</h1>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("~/Projects", "projects-window", 95, 200, 3).Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("~/Projects", "projects-window", 3).Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -132,33 +128,11 @@ func Desktop() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = Window("Blog", "blog-window", 1250, 460, 5).Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = Window("Blog", "blog-window", 5).Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Var7 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
-				templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
-				templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
-				if !templ_7745c5c3_IsBuffer {
-					defer func() {
-						templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
-						if templ_7745c5c3_Err == nil {
-							templ_7745c5c3_Err = templ_7745c5c3_BufErr
-						}
-					}()
-				}
-				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = HiddenTerminal().Render(ctx, templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				return nil
-			})
-			templ_7745c5c3_Err = Window("Halla", "hidden-terminal", 785, 200, 1).Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -188,12 +162,12 @@ func BlogFeed() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var8 == nil {
-			templ_7745c5c3_Var8 = templ.NopComponent
+		templ_7745c5c3_Var7 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var7 == nil {
+			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div><ul>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div><ul>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -201,7 +175,7 @@ func BlogFeed() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</ul></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</ul></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -225,58 +199,58 @@ func PostPage(next int, posts []repositories.Post) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var9 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var9 == nil {
-			templ_7745c5c3_Var9 = templ.NopComponent
+		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var8 == nil {
+			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		if len(posts) > 0 {
 			for _, post := range posts {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<li><h1>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<li><h1>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var9 string
+				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 40, Col: 24}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</h1><p>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var10 string
-				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
+				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(post.Subtitle)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 40, Col: 24}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 41, Col: 26}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</h1><p>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p><p>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var11 string
-				templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(post.Subtitle)
+				templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(post.CreatedAt.Format("02.Jan.2006"))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 41, Col: 26}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 42, Col: 49}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p><p>")
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				var templ_7745c5c3_Var12 string
-				templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(post.CreatedAt.Format("02.Jan.2006"))
-				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 42, Col: 49}
-				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</p></li>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p></li>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, " ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, " ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -285,7 +259,7 @@ func PostPage(next int, posts []repositories.Post) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<p>no more posts</p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<p>no more posts</p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -310,25 +284,25 @@ func nextPage(page int) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var13 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var13 == nil {
-			templ_7745c5c3_Var13 = templ.NopComponent
+		templ_7745c5c3_Var12 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var12 == nil {
+			templ_7745c5c3_Var12 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<p hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<p hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var14 string
-		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.ResolveAttributeValue("/posts/" + strconv.Itoa(page))
+		var templ_7745c5c3_Var13 string
+		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.ResolveAttributeValue("/posts/" + strconv.Itoa(page))
 		if templ_7745c5c3_Err != nil {
 			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 55, Col: 44}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var14)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var13)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "\" hx-trigger=\"intersect once\" hx-target=\"this\" hx-swap=\"outerHTML\">getting posts...</p>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "\" hx-trigger=\"intersect once\" hx-target=\"this\" hx-swap=\"outerHTML\">getting posts...</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -352,12 +326,12 @@ func Terminal() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var15 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var15 == nil {
-			templ_7745c5c3_Var15 = templ.NopComponent
+		templ_7745c5c3_Var14 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var14 == nil {
+			templ_7745c5c3_Var14 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"terminal\"><code>kennet@desktop<br>╭──┬─────────────────────────────────╮<br>│\uf313 │ NixOS 26.11 (Zokor)<br>│\U000f03d6 │ 15 (\uf324 ) 2349 (\uf313 ) <br>│\uf013 │ Linux 6.18.38<br>│\uf4bc │ AMD Ryzen 9 5950X<br>│\U000f08ae │ GeForce RTX 3060 Ti Lite Hash Rate<br>│\uefc5 │ 4.04 GiB / 31.25 GiB (13%)<br>│\uf017 │ 15 mins<br>│\U000f0aba │ 44 days<br>╰──┴─────────────────────────────────╯<br><span style=\"color: var(--base00)\">●</span> <span style=\"color: var(--base05)\">●</span> <span style=\"color: var(--base08)\">●</span> <span style=\"color: var(--base08)\">●</span> <span style=\"color: var(--base0A)\">●</span> <span style=\"color: var(--base0B)\">●</span> <span style=\"color: var(--base0C)\">●</span> <span style=\"color: var(--base0D)\">●</span><br></code></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "<div class=\"terminal\"><code>kennet@desktop<br>╭──┬─────────────────────────────────╮<br>│\uf313 │ NixOS 26.11 (Zokor)<br>│\U000f03d6 │ 15 (\uf324 ) 2349 (\uf313 ) <br>│\uf013 │ Linux 6.18.38<br>│\uf4bc │ AMD Ryzen 9 5950X<br>│\U000f08ae │ GeForce RTX 3060 Ti Lite Hash Rate<br>│\uefc5 │ 4.04 GiB / 31.25 GiB (13%)<br>│\uf017 │ 15 mins<br>│\U000f0aba │ 44 days<br>╰──┴─────────────────────────────────╯<br><span style=\"color: var(--base00)\">●</span> <span style=\"color: var(--base05)\">●</span> <span style=\"color: var(--base08)\">●</span> <span style=\"color: var(--base08)\">●</span> <span style=\"color: var(--base0A)\">●</span> <span style=\"color: var(--base0B)\">●</span> <span style=\"color: var(--base0C)\">●</span> <span style=\"color: var(--base0D)\">●</span><br></code></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -381,12 +355,12 @@ func HiddenTerminal() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var16 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var16 == nil {
-			templ_7745c5c3_Var16 = templ.NopComponent
+		templ_7745c5c3_Var15 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var15 == nil {
+			templ_7745c5c3_Var15 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"terminal\"><code>⠀⠀⡿⠀⠀⠀⠀⠈⢳⡄⠀⢰⡶⠶⠶⣤⣀⠀⠀⠀⢠⠞⠉⠀⠀⠀⠀⠀⢸⡇<br>⠀⢸⠇⠀⠀⠀⠀⠀⠀⠙⢦⡈⣷⠀⠀⠀⠉⠻⢦⣰⡏⠀⠀⠀⠀⠀⠀⠀⢸⡇<br>⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⣈⡿⠞⠛⠀⠀⠀⠀⠀⠙⠦⠀⠀⠀⠀⠀⠀⠀⢸⡇<br>⠀⣿⠀⠀⠀⠀⠀⠀⠀⠘⠛⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇<br>⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠇<br>⠀⠀⢿⡀⠀⢠⣤⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⣰⣶⣶⣶⠒⢲⡖⠀⠀⠀⣠⠟⠀<br>⣤⣤⣈⣳⡄⠀⡟⠀⢸⣿⣿⣿⡇⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⣷⠀⢠⡾⠯⣤⡄<br>⠹⣧⡉⠉⠁⠸⡇⠀⠀⢿⣿⣿⠀⠀⠀⠀⠀⠹⣿⣿⠏⠀⠀⣿⠀⠀⢀⣴⠏⠀<br>⠀⠈⢙⡷⢠⣄⣝⡄⠀⠀⠉⠁⠀⠉⠉⠀⠀⠀⠀⠀⠀⢠⣶⡴⠀⠐⢿⣅⠀⠀<br>⠀⢀⡿⠁⠀⠈⠁⠀⠀⠀⠀⠰⠤⠴⠖⠲⠶⠚⠁⠀⠀⠀⠉⢀⣀⢀⣀⣻⣦⠀<br>⠀⠘⠓⠒⠛⠛⠶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣤⡴⠶⠛⠉⠉⠉⠉⠁⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⠻⣍⡙⠋⠁⠀⠀⠀⠀⠀⠀⠀⠹⣆⠀⠀⠀⠀⠀⠀⠀⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⢀⡼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣆⠀⠀⠀⠀⠀⠀⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⠀⠀⠀⠀⠀⠀<br><pre>██╗  ██╗ █████╗ ██╗     ██╗      █████╗ <br>██║  ██║██╔══██╗██║     ██║     ██╔══██╗<br>███████║███████║██║     ██║     ███████║<br>██╔══██║██╔══██║██║     ██║     ██╔══██║<br>██║  ██║██║  ██║███████╗███████╗██║  ██║<br>╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝<br></pre></code></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"terminal\"><code>⠀⠀⡿⠀⠀⠀⠀⠈⢳⡄⠀⢰⡶⠶⠶⣤⣀⠀⠀⠀⢠⠞⠉⠀⠀⠀⠀⠀⢸⡇<br>⠀⢸⠇⠀⠀⠀⠀⠀⠀⠙⢦⡈⣷⠀⠀⠀⠉⠻⢦⣰⡏⠀⠀⠀⠀⠀⠀⠀⢸⡇<br>⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⣈⡿⠞⠛⠀⠀⠀⠀⠀⠙⠦⠀⠀⠀⠀⠀⠀⠀⢸⡇<br>⠀⣿⠀⠀⠀⠀⠀⠀⠀⠘⠛⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇<br>⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠇<br>⠀⠀⢿⡀⠀⢠⣤⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⣰⣶⣶⣶⠒⢲⡖⠀⠀⠀⣠⠟⠀<br>⣤⣤⣈⣳⡄⠀⡟⠀⢸⣿⣿⣿⡇⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⣷⠀⢠⡾⠯⣤⡄<br>⠹⣧⡉⠉⠁⠸⡇⠀⠀⢿⣿⣿⠀⠀⠀⠀⠀⠹⣿⣿⠏⠀⠀⣿⠀⠀⢀⣴⠏⠀<br>⠀⠈⢙⡷⢠⣄⣝⡄⠀⠀⠉⠁⠀⠉⠉⠀⠀⠀⠀⠀⠀⢠⣶⡴⠀⠐⢿⣅⠀⠀<br>⠀⢀⡿⠁⠀⠈⠁⠀⠀⠀⠀⠰⠤⠴⠖⠲⠶⠚⠁⠀⠀⠀⠉⢀⣀⢀⣀⣻⣦⠀<br>⠀⠘⠓⠒⠛⠛⠶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣤⡴⠶⠛⠉⠉⠉⠉⠁⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⠻⣍⡙⠋⠁⠀⠀⠀⠀⠀⠀⠀⠹⣆⠀⠀⠀⠀⠀⠀⠀⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⢀⡼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣆⠀⠀⠀⠀⠀⠀⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀⠀<br>⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⠀⠀⠀⠀⠀⠀<br><pre>██╗  ██╗ █████╗ ██╗     ██╗      █████╗ <br>██║  ██║██╔══██╗██║     ██║     ██╔══██╗<br>███████║███████║██║     ██║     ███████║<br>██╔══██║██╔══██║██║     ██║     ██╔══██║<br>██║  ██║██║  ██║███████╗███████╗██║  ██║<br>╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝<br></pre></code></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

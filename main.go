@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"log"
 	"net/http"
+	"os"
 	"personal_website/handlers"
 	"personal_website/repositories"
 
@@ -14,26 +15,33 @@ import (
 func main() {
 	ctx := context.Background()
 
-	db, err := sql.Open("sqlite", "./blog.db")
+	db, err := sql.Open("sqlite", get_blog_database_path())
 	if err != nil {
-		log.Fatal(err)		
+		log.Fatal(err)
 	}
 
 	q := repositories.New(db)
 
 	mux := http.NewServeMux()
 
-	a := &handlers.Application {
+	a := &handlers.Application{
 		Ctx: ctx,
-		Q: q,
+		Q:   q,
 	}
-	
+
 	fileServer := http.FileServer(http.Dir("./static"))
 	mux.Handle("GET /static/{path...}", http.StripPrefix("/static/", fileServer))
 
 	mux.HandleFunc("GET /", a.Desktop)
 	mux.HandleFunc("GET /posts/{page}", a.Posts)
-	
+
 	log.Println("Server staring on :6969")
 	log.Fatal(http.ListenAndServe(":6969", mux))
+}
+
+func get_blog_database_path() string {
+	if path := os.Getenv("BLOG_DATABASE_PATH"); path != "" {
+		return path
+	}
+	return "./data/blog.db"
 }

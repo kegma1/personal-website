@@ -4,35 +4,21 @@ import (
   "fmt"
 )
 
-templ Window(title string, windowId string, initialX int, initialY int, initialZ int) {
+templ Window(title string, windowId string, initialZ int) {
   <div
     class="window"
     id={windowId}
-    x-data={ fmt.Sprintf("{ X: %d, Y: %d, Z: %d }", initialX, initialY, initialZ) }
+    x-data={ fmt.Sprintf("{ Z: %d }", initialZ) }
     @mousedown="Z = nextZ; nextZ++;"
-    :style="{ zIndex: Z, top: Y + 'px', left: X + 'px' }"
+    :style="{ zIndex: Z }"
   >
     <div
       class="title-bar"
-      x-data="{ clicked: false }"
-      @mousedown="clicked = true"
-      @mouseup.window="clicked = false"
-      @mousemove.window="
-        if (clicked) {
-          X += $event.movementX;
-          Y += $event.movementY;
-        }
-      "
     >
       <div class="close-button"></div>
       <div class="title-bar-text">{title}</div>
       <div class="minimize-button">
-        <svg width="15" height="15" viewBox="0 0 15 15">
-          <path d="M7.5 0 V7.5 H-7.5" 
-                stroke-width="5" 
-                stroke-linecap="square"
-                fill="none"/>
-        </svg>
+        <div class="minimize-innerbutton"></div>
       </div>
     </div>
     <div class="window-body">

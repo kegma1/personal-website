@@ -6,21 +6,21 @@ import "strconv"
 templ Desktop() {
   @Base("test") {
     <div class="desktop" x-data="{ nextZ: 10 }">
-      @Window("Hello world", "main-window", 560, 15, 2) {
-        <h1>halla</h1>
-      }
-      @Window("Terminal", "terminal-window", 1250, 80, 4) {
-        @Terminal()
-      }
-      @Window("~/Projects", "projects-window", 95, 200, 3) {
-        <h1>halla</h1>
-      }
-      @Window("Blog", "blog-window", 1250, 460, 5) {
-        @BlogFeed()
-      }
-      @Window("Halla", "hidden-terminal", 785, 200, 1) {
+      @Window("Hello world", "main-window", 2) {
         @HiddenTerminal()
       }
+      @Window("Terminal", "terminal-window", 4) {
+        // @Terminal()
+      }
+      @Window("~/Projects", "projects-window", 3) {
+        <h1>halla</h1>
+      }
+      @Window("Blog", "blog-window", 5) {
+        @BlogFeed()
+      }
+      // @Window("Halla", "hidden-terminal", 1) {
+      //   @HiddenTerminal()
+      // }
     </div>
   }
 }
