@@ -21,13 +21,12 @@ func main() {
 	}
 
 	q := repositories.New(db)
-
-	mux := http.NewServeMux()
-
 	a := &handlers.Application{
 		Ctx: ctx,
 		Q:   q,
 	}
+
+	mux := http.NewServeMux()
 
 	fileServer := http.FileServer(http.Dir("./static"))
 	mux.Handle("GET /static/{path...}", http.StripPrefix("/static/", fileServer))
