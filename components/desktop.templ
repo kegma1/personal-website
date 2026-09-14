@@ -42,7 +42,7 @@ templ Desktop() {
                  gl_FragColor =  uFragColor + vColor;
               }
           </script>
-          <canvas id="myCanvas"</canvas>
+          <canvas id="myCanvas"></canvas>
           <script type="module">
               import {main} from "./static/main.js";
               main();
@@ -54,10 +54,10 @@ templ Desktop() {
           </div>
         }
         @Window("Blog", "blog-window", 5) {
-          // <div class="under-construction">
-          //   <h1>Under construction...</h1>
-          // </div>
-          @BlogFeed()
+          <div class="under-construction">
+            <h1>Under construction...</h1>
+          </div>
+          // @BlogFeed()
         }
       </div>
     </div>
