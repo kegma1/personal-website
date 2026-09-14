@@ -6,21 +6,29 @@ import "strconv"
 templ Desktop() {
   @Base("Under construction...") {
     <div class="desktop" x-data="{ nextZ: 10 }">
-      @Window("Hello world", "main-window", 2) {
-        @HiddenTerminal()
-      }
-      @Window("Terminal", "terminal-window", 4) {
-        // @Terminal()
-      }
-      @Window("~/Projects", "projects-window", 3) {
-        <h1>halla</h1>
-      }
-      @Window("Blog", "blog-window", 5) {
-        @BlogFeed()
-      }
-      // @Window("Halla", "hidden-terminal", 1) {
-      //   @HiddenTerminal()
-      // }
+      <div class="window-cluster">
+        @Window("Hello world", "main-window", 2) {
+          <div class="under-construction">
+            <h1>Under construction...</h1>
+          </div>
+        }
+        @Window("Terminal", "terminal-window", 4) {
+          <div class="under-construction">
+            <h1>Under construction...</h1>
+          </div>
+        }
+        @Window("~/Projects", "projects-window", 3) {
+          <div class="under-construction">
+            <h1>Under construction...</h1>
+          </div>
+        }
+        @Window("Blog", "blog-window", 5) {
+          // <div class="under-construction">
+          //   <h1>Under construction...</h1>
+          // </div>
+          @BlogFeed()
+        }
+      </div>
     </div>
   }
 }
