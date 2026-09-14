@@ -17,6 +17,7 @@
   --base0F: #d65d0e;
 
   --window-shadow: color-mix(in srgb, var(--base00) 80%, transparent);
+  --under-construction-color: color-mix(in srgb, var(--base00) 95%, transparent);
   --pixel-size: 5px;
 }
 
@@ -34,6 +35,22 @@
 
 body {
   background-color: var(--base02);
+}
+
+.under-construction {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  background-color: var(--under-construction-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.under-construction h1 {
+  color: var(--base05);
+  font-size: 4vw;
 }
 
 .window {
