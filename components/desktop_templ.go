@@ -82,7 +82,7 @@ func Desktop() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"under-construction\"><h1>Under construction...</h1></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "   <script id=\"base-vertex-shader\" type=\"x-shader/x-vertex\">\n              attribute vec3 aVertexPosition;\n\n              attribute vec4 aVertexColor;\n              varying lowp vec4 vColor;\n\n              uniform mat4 uModelViewMatrix;\n              uniform mat4 uProjectionMatrix;\n\n              void main(void) {\n                  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);\n                  vColor = aVertexColor;\n              }\n          </script> <script id=\"base-fragment-shader\" type=\"x-shader/x-fragment\">\n              precision mediump float;\n\n              varying lowp vec4 vColor;\n\n              uniform vec4 uFragColor;\n        \n              void main(void) {\n                 gl_FragColor =  uFragColor + vColor;\n              }\n          </script> <canvas id=\"myCanvas\"></canvas><script type=\"module\">\n              import {main} from \"./static/main.js\";\n              main();\n          </script>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -221,7 +221,7 @@ func PostPage(next int, posts []repositories.Post) templ.Component {
 				var templ_7745c5c3_Var9 string
 				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 48, Col: 24}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 79, Col: 24}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
@@ -234,7 +234,7 @@ func PostPage(next int, posts []repositories.Post) templ.Component {
 				var templ_7745c5c3_Var10 string
 				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(post.Subtitle)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 49, Col: 26}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 80, Col: 26}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
@@ -247,7 +247,7 @@ func PostPage(next int, posts []repositories.Post) templ.Component {
 				var templ_7745c5c3_Var11 string
 				templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(post.CreatedAt.Format("02.Jan.2006"))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 50, Col: 49}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 81, Col: 49}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 				if templ_7745c5c3_Err != nil {
@@ -304,7 +304,7 @@ func nextPage(page int) templ.Component {
 		var templ_7745c5c3_Var13 string
 		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.ResolveAttributeValue("/posts/" + strconv.Itoa(page))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 63, Col: 44}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/desktop.templ`, Line: 94, Col: 44}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var13)
 		if templ_7745c5c3_Err != nil {

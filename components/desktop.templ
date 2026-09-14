@@ -13,9 +13,40 @@ templ Desktop() {
           </div>
         }
         @Window("Terminal", "terminal-window", 4) {
-          <div class="under-construction">
-            <h1>Under construction...</h1>
-          </div>
+          // <div class="under-construction">
+          //   <h1>Under construction...</h1>
+          // </div>
+           <script id="base-vertex-shader" type="x-shader/x-vertex">
+              attribute vec3 aVertexPosition;
+
+              attribute vec4 aVertexColor;
+              varying lowp vec4 vColor;
+
+              uniform mat4 uModelViewMatrix;
+              uniform mat4 uProjectionMatrix;
+
+              void main(void) {
+                  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
+                  vColor = aVertexColor;
+              }
+          </script>
+
+          <script id="base-fragment-shader" type="x-shader/x-fragment">
+              precision mediump float;
+
+              varying lowp vec4 vColor;
+
+              uniform vec4 uFragColor;
+        
+              void main(void) {
+                 gl_FragColor =  uFragColor + vColor;
+              }
+          </script>
+          <canvas id="myCanvas"</canvas>
+          <script type="module">
+              import {main} from "./static/main.js";
+              main();
+          </script>
         }
         @Window("~/Projects", "projects-window", 3) {
           <div class="under-construction">
