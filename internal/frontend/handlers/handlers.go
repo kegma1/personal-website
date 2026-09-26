@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
-	"personal_website/components"
+	"personal_website/internal/frontend/components"
 	"personal_website/repositories"
 	"strconv"
 )

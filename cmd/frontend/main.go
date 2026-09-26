@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"personal_website/handlers"
+	"personal_website/internal/frontend/handlers"
 	"personal_website/repositories"
 
 	_ "modernc.org/sqlite"
