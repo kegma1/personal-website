@@ -22,3 +22,14 @@ SELECT * FROM posts
 ORDER BY created_at DESC
 LIMIT ?
 OFFSET ?;
+
+-- name: GetProjects :many
+SELECT * FROM projects;
+
+-- name: CreateProject :one
+INSERT INTO projects (
+    title, link
+) VALUES (
+    ?, ?
+)
+RETURNING *;

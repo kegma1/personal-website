@@ -115,9 +115,10 @@ body {
   padding-top: var(--pixel-size);
 }
 
-
 .title-bar-text {
-  min-height: calc(var(--pixel-size) * 3);
+  height: calc(var(--pixel-size) * 5);
+  line-height: calc(var(--pixel-size) * 5);
+  padding: 0 calc(var(--pixel-size) * 2);
   background: var(--base05);
   user-select: none;
 }
@@ -203,9 +204,9 @@ body {
     grid-row-end: 5;
   }
 }
+
 @media (max-width: 600px) {
-  .desktop {
-  }
+  .desktop {}
 
   .window-cluster {
     box-sizing: border-box;
@@ -215,16 +216,12 @@ body {
     gap: calc(var(--pixel-size) * 4);
   }
 
-  #terminal-window {
-  }
+  #terminal-window {}
 
 
-  #projects-window {
-  }
+  #projects-window {}
 
-  #main-window {
-  }
+  #main-window {}
 
-  #blog-window {
-  }
+  #blog-window {}
 }

@@ -1,8 +1,5 @@
 package components
 
-import "personal_website/repositories"
-import "strconv"
-
 templ Desktop() {
   @Base("Under construction...") {
     <div class="desktop" x-data="{ nextZ: 10 }">
@@ -13,45 +10,13 @@ templ Desktop() {
           </div>
         }
         @Window("Terminal", "terminal-window", 4) {
+          @Game()
+        }
+        @Window("~/Projects", "projects-window", 3) {
           // <div class="under-construction">
           //   <h1>Under construction...</h1>
           // </div>
-           <script id="base-vertex-shader" type="x-shader/x-vertex">
-              attribute vec3 aVertexPosition;
-
-              attribute vec4 aVertexColor;
-              varying lowp vec4 vColor;
-
-              uniform mat4 uModelViewMatrix;
-              uniform mat4 uProjectionMatrix;
-
-              void main(void) {
-                  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
-                  vColor = aVertexColor;
-              }
-          </script>
-
-          <script id="base-fragment-shader" type="x-shader/x-fragment">
-              precision mediump float;
-
-              varying lowp vec4 vColor;
-
-              uniform vec4 uFragColor;
-        
-              void main(void) {
-                 gl_FragColor =  uFragColor + vColor;
-              }
-          </script>
-          <canvas id="myCanvas"</canvas>
-          <script type="module">
-              import {main} from "./static/main.js";
-              main();
-          </script>
-        }
-        @Window("~/Projects", "projects-window", 3) {
-          <div class="under-construction">
-            <h1>Under construction...</h1>
-          </div>
+          @Projects()
         }
         @Window("Blog", "blog-window", 5) {
           // <div class="under-construction">
@@ -64,81 +29,4 @@ templ Desktop() {
   }
 }
 
-templ BlogFeed() {
-  <div>
-    <ul>
-      @nextPage(0)
-    </ul>
-  </div>  
-}
 
-templ PostPage(next int, posts []repositories.Post) {
-  if len(posts) > 0 {
-    for _, post := range posts {
-      <li>
-        <h1>{ post.Title }</h1>
-        <p>{ post.Subtitle }</p>
-        <p>{ post.CreatedAt.Format("02.Jan.2006") }</p>
-        // if post.EditedAt.Valid {
-        //   <p>{ post.EditedAt.Valid }</p>
-        // }
-      </li>
-    }
-    @nextPage(next)
-  } else {
-    <p>no more posts</p>
-  }
-}
-
-templ nextPage(page int) {
-  <p hx-get={ "/posts/" + strconv.Itoa(page) } hx-trigger="intersect once" hx-target="this" hx-swap="outerHTML">getting posts...</p>
-}
-
-templ Terminal() {
-  <div class="terminal">
-    <code>
-kennet@desktop<br/>
-╭──┬─────────────────────────────────╮<br/>
-│ │ NixOS 26.11 (Zokor)<br/>
-│󰏖 │ 15 ( ) 2349 ( ) <br/>
-│ │ Linux 6.18.38<br/>
-│ │ AMD Ryzen 9 5950X<br/>
-│󰢮 │ GeForce RTX 3060 Ti Lite Hash Rate<br/>
-│ │ 4.04 GiB / 31.25 GiB (13%)<br/>
-│ │ 15 mins<br/>
-│󰪺 │ 44 days<br/>
-╰──┴─────────────────────────────────╯<br/>
-<span style="color: var(--base00)">●</span> <span style="color: var(--base05)">●</span> <span style="color: var(--base08)">●</span> <span style="color: var(--base08)">●</span> <span style="color: var(--base0A)">●</span> <span style="color: var(--base0B)">●</span> <span style="color: var(--base0C)">●</span> <span style="color: var(--base0D)">●</span><br/>
-    </code>
-  </div>
-}
-
-templ HiddenTerminal() {
-  <div class="terminal">
-    <code>
-	⠀⠀⡿⠀⠀⠀⠀⠈⢳⡄⠀⢰⡶⠶⠶⣤⣀⠀⠀⠀⢠⠞⠉⠀⠀⠀⠀⠀⢸⡇<br/>
-	⠀⢸⠇⠀⠀⠀⠀⠀⠀⠙⢦⡈⣷⠀⠀⠀⠉⠻⢦⣰⡏⠀⠀⠀⠀⠀⠀⠀⢸⡇<br/>
-	⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⣈⡿⠞⠛⠀⠀⠀⠀⠀⠙⠦⠀⠀⠀⠀⠀⠀⠀⢸⡇<br/>
-	⠀⣿⠀⠀⠀⠀⠀⠀⠀⠘⠛⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇<br/>
-	⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠇<br/>
-	⠀⠀⢿⡀⠀⢠⣤⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⣰⣶⣶⣶⠒⢲⡖⠀⠀⠀⣠⠟⠀<br/>
-	⣤⣤⣈⣳⡄⠀⡟⠀⢸⣿⣿⣿⡇⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⣷⠀⢠⡾⠯⣤⡄<br/>
-	⠹⣧⡉⠉⠁⠸⡇⠀⠀⢿⣿⣿⠀⠀⠀⠀⠀⠹⣿⣿⠏⠀⠀⣿⠀⠀⢀⣴⠏⠀<br/>
-	⠀⠈⢙⡷⢠⣄⣝⡄⠀⠀⠉⠁⠀⠉⠉⠀⠀⠀⠀⠀⠀⢠⣶⡴⠀⠐⢿⣅⠀⠀<br/>
-	⠀⢀⡿⠁⠀⠈⠁⠀⠀⠀⠀⠰⠤⠴⠖⠲⠶⠚⠁⠀⠀⠀⠉⢀⣀⢀⣀⣻⣦⠀<br/>
-	⠀⠘⠓⠒⠛⠛⠶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣤⡴⠶⠛⠉⠉⠉⠉⠁⠀<br/>
-	⠀⠀⠀⠀⠀⠀⠀⠀⠻⣍⡙⠋⠁⠀⠀⠀⠀⠀⠀⠀⠹⣆⠀⠀⠀⠀⠀⠀⠀⠀<br/>
-	⠀⠀⠀⠀⠀⠀⠀⠀⢀⡼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣆⠀⠀⠀⠀⠀⠀⠀<br/>
-	⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀⠀<br/>
-	⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⠀⠀⠀⠀⠀⠀<br/>
-    <pre>
-██╗  ██╗ █████╗ ██╗     ██╗      █████╗ <br/>
-██║  ██║██╔══██╗██║     ██║     ██╔══██╗<br/>
-███████║███████║██║     ██║     ███████║<br/>
-██╔══██║██╔══██║██║     ██║     ██╔══██║<br/>
-██║  ██║██║  ██║███████╗███████╗██║  ██║<br/>
-╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝<br/>
-    </pre>
-    </code>
-  </div>
-}

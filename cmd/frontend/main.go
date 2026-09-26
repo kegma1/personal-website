@@ -42,5 +42,5 @@ func get_blog_database_path() string {
 	if path := os.Getenv("BLOG_DATABASE_PATH"); path != "" {
 		return path
 	}
-	return "./data/blog.db"
+	return "./data/db.db"
 }

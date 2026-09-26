@@ -1,0 +1,31 @@
+package components
+
+import "personal_website/repositories"
+import "strconv"
+
+templ BlogFeed() {
+  <div>
+    <ul>
+      @nextPage(0)
+    </ul>
+  </div>  
+}
+
+templ PostPage(next int, posts []repositories.Post) {
+  if len(posts) > 0 {
+    for _, post := range posts {
+      <li>
+        <h1>{ post.Title }</h1>
+        <p>{ post.Subtitle }</p>
+        <p>{ post.CreatedAt.Format("02.Jan.2006") }</p>
+      </li>
+    }
+    @nextPage(next)
+  } else {
+    <p>no more posts</p>
+  }
+}
+
+templ nextPage(page int) {
+  <p hx-get={ "/posts/" + strconv.Itoa(page) } hx-trigger="intersect once" hx-target="this" hx-swap="outerHTML">getting posts...</p>
+}

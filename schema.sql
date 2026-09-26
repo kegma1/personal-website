@@ -7,4 +7,10 @@ CREATE TABLE posts (
     edited_at     DATE              NULL,
     language      text      NOT     NULL,
     tags          text      NOT     NULL  -- comma seperated value
-)
+);
+
+CREATE TABLE projects (
+    id            INTEGER   PRIMARY KEY,
+    title         text      NOT     NULL,
+    link          text      NOT     NULL
+);
