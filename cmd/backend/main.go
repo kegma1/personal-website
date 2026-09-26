@@ -1,12 +1,14 @@
 package main
 
 import (
-	tea "charm.land/bubbletea/v2"
 	"context"
 	"database/sql"
 	"log"
-	"os"
+	"personal_website/internal"
+	"personal_website/internal/backend"
 	"personal_website/repositories"
+
+	tea "charm.land/bubbletea/v2"
 
 	_ "modernc.org/sqlite"
 )
@@ -14,18 +16,21 @@ import (
 func main() {
 	ctx := context.Background()
 
-	db, err := sql.Open("sqlite", get_blog_database_path())
+	db, err := sql.Open("sqlite", internal.Get_blog_database_path())
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	q := repositories.New(db)
 
+	app := backend.App{
+		Ctx: ctx,
+		Q: q,
+	}
+
+	p := tea.NewProgram(backend.InitialModel(&app))
+	if _, err := p.Run(); err != nil {
+		log.Fatalf("Error: %v\n", err)
+	}
 }
 
-func get_blog_database_path() string {
-	if path := os.Getenv("BLOG_DATABASE_PATH"); path != "" {
-		return path
-	}
-	return "./data/db.db"
-}

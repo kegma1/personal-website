@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"log"
 	"net/http"
-	"os"
+	"personal_website/internal"
 	"personal_website/internal/frontend/handlers"
 	"personal_website/repositories"
 
@@ -15,7 +15,7 @@ import (
 func main() {
 	ctx := context.Background()
 
-	db, err := sql.Open("sqlite", get_blog_database_path())
+	db, err := sql.Open("sqlite", internal.Get_blog_database_path())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -38,9 +38,3 @@ func main() {
 	log.Fatal(http.ListenAndServe(":6969", mux))
 }
 
-func get_blog_database_path() string {
-	if path := os.Getenv("BLOG_DATABASE_PATH"); path != "" {
-		return path
-	}
-	return "./data/db.db"
-}
