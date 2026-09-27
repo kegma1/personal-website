@@ -1,20 +1,21 @@
 package backend
 
 import (
-	"fmt"
-
 	tea "charm.land/bubbletea/v2"
 )
 
 func (m MainModel) View() tea.View {
 	s := ""
 	if len(m.projects) > 0 {
-		for _, project := range m.projects {
-			s += fmt.Sprintf("%s %s\n", project.Title, project.Link)
-		}
+		s += m.projectTable.View() + "\n  " + m.projectTable.HelpView() + "\n"
 	} else {
 		s += "There are no projects in the database..."
 	}
+
+	if m.err != nil {
+		s += m.err.Error()
+	}
+
 	v := tea.NewView(s)
 
 	if m.createProject.open {
