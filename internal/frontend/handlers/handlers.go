@@ -11,12 +11,22 @@ import (
 
 type Application struct {
 	Ctx context.Context
-	Q *repositories.Queries
+	Q   *repositories.Queries
 }
 
 func (app *Application) Desktop(w http.ResponseWriter, r *http.Request) {
 	component := components.Desktop()
-	component.Render(r.Context(), w)	
+	component.Render(r.Context(), w)
+}
+
+func (app *Application) Projects(w http.ResponseWriter, r *http.Request) {
+	projects, err := app.Q.GetProjects(app.Ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	component := components.ProjectLinks(projects)
+	component.Render(r.Context(), w)
 }
 
 func (app *Application) Posts(w http.ResponseWriter, r *http.Request) {
@@ -25,11 +35,11 @@ func (app *Application) Posts(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	posts, err := app.Q.GetPagedPosts(app.Ctx, repositories.GetPagedPostsParams{ Limit: 5, Offset: int64(page * 5) })
+	posts, err := app.Q.GetPagedPosts(app.Ctx, repositories.GetPagedPostsParams{Limit: 5, Offset: int64(page * 5)})
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	component := components.PostPage(page + 1, posts)
+	component := components.PostPage(page+1, posts)
 	component.Render(r.Context(), w)
 }

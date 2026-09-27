@@ -151,6 +151,27 @@ body {
   height: 100%;
 }
 
+.projects {
+  display: flex;
+  gap: calc(var(--pixel-size) * 4);
+}
+
+.projects > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90px;
+}
+
+.projects > a > img {}
+
+.projects > a > h1 {
+  color: var(--base00);
+  text-align: center;
+  font-size: calc(var(--pixel-size) * 4);
+}
+
 @media (min-width: 600px) {
   .desktop {
     display: flex;

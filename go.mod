@@ -5,12 +5,12 @@ go 1.26.4
 require (
 	charm.land/bubbles/v2 v2.2.1
 	charm.land/bubbletea/v2 v2.0.10
+	charm.land/lipgloss/v2 v2.0.5
 	github.com/a-h/templ v0.3.1020
 	modernc.org/sqlite v1.54.0
 )
 
 require (
-	charm.land/lipgloss/v2 v2.0.5 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/charmbracelet/colorprofile v0.4.3 // indirect
 	github.com/charmbracelet/ultraviolet v0.0.0-20260703014108-f5a850f9c2b7 // indirect

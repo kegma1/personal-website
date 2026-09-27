@@ -33,6 +33,7 @@ func main() {
 
 	mux.HandleFunc("GET /", a.Desktop)
 	mux.HandleFunc("GET /posts/{page}", a.Posts)
+	mux.HandleFunc("GET /projects", a.Projects)
 
 	log.Println("Server staring on :6969")
 	log.Fatal(http.ListenAndServe(":6969", mux))
