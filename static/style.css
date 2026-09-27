@@ -153,6 +153,9 @@ body {
 
 .projects {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: calc(var(--pixel-size) * 4);
 }
 
