@@ -33,3 +33,7 @@ INSERT INTO projects (
     ?, ?
 )
 RETURNING *;
+
+-- name: DeleteProject :exec
+DELETE FROM projects
+where id = ?;

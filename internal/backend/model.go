@@ -7,22 +7,24 @@ import (
 	tea "charm.land/bubbletea/v2"
 )
 
-type Model struct {
+type MainModel struct {
 	app      *App
 	projects []repositories.Project
+	createProject CreateProjectModel
 }
 
-func (m Model) Init() tea.Cmd {
+func (m MainModel) Init() tea.Cmd {
 	return nil
 }
 
-func InitialModel(app *App) Model {
+func InitialModel(app *App) MainModel {
 	initalProjects, err := app.Q.GetProjects(app.Ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
-	return Model{
+	return MainModel{
 		app:      app,
 		projects: initalProjects,
+		createProject: initialCreateProjectModel(),
 	}
 }

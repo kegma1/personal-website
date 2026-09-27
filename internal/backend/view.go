@@ -6,7 +6,7 @@ import (
 	tea "charm.land/bubbletea/v2"
 )
 
-func (m Model) View() tea.View {
+func (m MainModel) View() tea.View {
 	s := ""
 	if len(m.projects) > 0 {
 		for _, project := range m.projects {
@@ -15,5 +15,12 @@ func (m Model) View() tea.View {
 	} else {
 		s += "There are no projects in the database..."
 	}
-	return tea.NewView(s)
+	v := tea.NewView(s)
+
+	if m.createProject.open {
+		v = m.createProject.View()
+	}
+
+	v.AltScreen = true
+	return v
 }
