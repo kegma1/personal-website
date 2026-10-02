@@ -23,7 +23,7 @@ func (m MainModel) Init() tea.Cmd { return nil }
 func (m *MainModel) updateRows() {
 	rows := []table.Row{}
 	for _, proj := range m.projects {
-		rows = append(rows, table.Row{strconv.Itoa(int(proj.ID)), proj.Title, proj.Link})
+		rows = append(rows, table.Row{strconv.Itoa(int(proj.ID)), proj.Title, proj.Link, proj.IconPath})
 	}
 	m.projectTable.SetRows(rows)
 }
@@ -47,6 +47,7 @@ func InitialModel(app *App) MainModel {
 		{Title: "Id", Width: 4},
 		{Title: "Title", Width: 20},
 		{Title: "Link", Width: 30},
+		{Title: "Icon path", Width: 30},
 	}
 
 	m := MainModel{
@@ -57,7 +58,7 @@ func InitialModel(app *App) MainModel {
 			table.WithColumns(columns),
 			table.WithFocused(true),
 			table.WithHeight(7),
-			table.WithWidth(55),
+			table.WithWidth(85),
 		),
 	}
 

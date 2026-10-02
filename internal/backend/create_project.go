@@ -19,15 +19,17 @@ type CreateProjectModel struct {
 }
 
 type SubmitProjectMsg struct {
-	Title string
-	Link  string
+	Title     string
+	Link      string
+	Icon_path string
 } 
 
-func submitProject(title, link string) tea.Cmd {
+func submitProject(title, link, icon_path string) tea.Cmd {
 	return func() tea.Msg {
 		return SubmitProjectMsg{
 			Title: title,
 			Link: link,
+			Icon_path: icon_path,
 		}
 	}
 }
@@ -36,7 +38,7 @@ func initialCreateProjectModel() CreateProjectModel {
 	// 0_0
 	cp := CreateProjectModel{
 		open:    false,
-		inputs:  make([]textinput.Model, 2),
+		inputs:  make([]textinput.Model, 3),
 		focused: titleFocused,
 	}
 
@@ -53,6 +55,8 @@ func initialCreateProjectModel() CreateProjectModel {
 			t.Focus()
 		case 1:
 			t.Placeholder = "Enter link..."
+		case 2:
+			t.Placeholder = "Enter icon path..."
 		}
 
 		cp.inputs[i] = t
@@ -82,7 +86,7 @@ func (m CreateProjectModel) Update(msg tea.Msg) (CreateProjectModel, tea.Cmd) {
 
 			if s == "enter" && m.focused == len(m.inputs)-1 {
 				m.open = false
-				return m, submitProject(m.inputs[0].Value(), m.inputs[1].Value())
+				return m, submitProject(m.inputs[0].Value(), m.inputs[1].Value(), m.inputs[2].Value())
 			}
 
 			if s == "up" || s == "shift+tab" {

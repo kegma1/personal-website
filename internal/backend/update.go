@@ -54,9 +54,15 @@ func (m MainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 
+		icon_path := msg.Icon_path
+		if icon_path == "" {
+			icon_path = "./static/default.svg"
+		}
+
 		proj, err := m.app.Q.CreateProject(m.app.Ctx, repositories.CreateProjectParams{
 			Title: title,
 			Link:  link,
+			IconPath: icon_path,
 		})
 		if err != nil {
 			m.err = err

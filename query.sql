@@ -28,9 +28,9 @@ SELECT * FROM projects;
 
 -- name: CreateProject :one
 INSERT INTO projects (
-    title, link
+    title, link, icon_path
 ) VALUES (
-    ?, ?
+    ?, ?, ?
 )
 RETURNING *;
 

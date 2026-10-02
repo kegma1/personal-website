@@ -12,5 +12,6 @@ CREATE TABLE posts (
 CREATE TABLE projects (
     id            INTEGER   PRIMARY KEY,
     title         text      NOT     NULL,
-    link          text      NOT     NULL
+    link          text      NOT     NULL,
+    icon_path     text      NOT     NULL
 );
